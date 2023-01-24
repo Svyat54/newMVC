@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Converter number</title>
+</head>
+<body>
+      <h1>2k10</h1>
+      <form>
+        <input type="text" name="binaryNumber" placeholder="binaryNumber">
+        <input type="submit" value="push">
+      </form>
+      <p>decimalNumber = [[${decimalNumber}]]</p>
+
+      <h1>2k16</h1>
+      <form>
+          <input type="text" name="binaryNumberPath2" placeholder="binaryNumberPath2">
+          <input type="submit" value="push">
+      </form>
+      <p>toHex = [[${hexNumber}]]</p>
+
+      <h1>10k2</h1>
+      <form>
+          <input type="text" name="decimalNumber" placeholder="decimalNumber">
+          <input type="submit" value="push">
+      </form>
+      <p>binaryNumber = [[${binaryNumber}]]</p>
+
+      <h1>16k2</h1>
+      <form>
+          <input type="text" name="hexNumber" placeholder="hexNumber">
+          <input type="submit" value="push">
+      </form>
+      <p>binaryNumberPath2 = [[${binaryNumberPath2}]]</p>
+</body>
+</html>
