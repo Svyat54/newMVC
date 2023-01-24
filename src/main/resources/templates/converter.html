@@ -11,14 +11,18 @@
         <input type="text" name="binaryNumber" placeholder="binaryNumber">
         <input type="submit" value="push">
       </form>
+      <th:block th:if="${decimalNumber != 0}">
       <p>decimalNumber = [[${decimalNumber}]]</p>
+      </th:block>
 
       <h1>2k16</h1>
       <form>
           <input type="text" name="binaryNumberPath2" placeholder="binaryNumberPath2">
           <input type="submit" value="push">
       </form>
+      <th:block th:if="${hexNumber != '0'}">
       <p>toHex = [[${hexNumber}]]</p>
+      </th:block>
 
       <h1>10k2</h1>
       <form>
@@ -32,6 +36,8 @@
           <input type="text" name="hexNumber" placeholder="hexNumber">
           <input type="submit" value="push">
       </form>
+      <th:block th:if="${binaryNumberPath2 != '0000'}">
       <p>binaryNumberPath2 = [[${binaryNumberPath2}]]</p>
+      </th:block>
 </body>
 </html>

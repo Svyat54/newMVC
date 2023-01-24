@@ -29,9 +29,8 @@ public class MvcController {
     @GetMapping("/converter")
     public String converter2k10(@RequestParam(name = "binaryNumber", defaultValue = "0", required = false)
             String binaryNumber, @RequestParam(name = "binaryNumberPath2", defaultValue = "0", required = false)
-            String binaryNumberPath2, @RequestParam(name = "decimalNumber", defaultValue = "0", required = false) Integer
-            decimalNumber, @RequestParam(name = "hexNumber", defaultValue = "0", required = false) String hexNumber,
-                                Model model){
+            String binaryNumberPath2, @RequestParam(name = "decimalNumber", required = false) Integer decimalNumber,
+            @RequestParam(name = "hexNumber", defaultValue = "0", required = false) String hexNumber, Model model){
         model.addAttribute("decimalNumber", BinaryDecimal.toDecimal(binaryNumber)); //2k10
         model.addAttribute("hexNumber", BinaryHex.toHex(binaryNumberPath2)); //2k16
         model.addAttribute("binaryNumber", BinaryDecimal.toBinary(decimalNumber)); //10k2
