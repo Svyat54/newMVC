@@ -5,6 +5,8 @@ import com.example.newmvc.entity.BinaryHex;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.Mapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -27,7 +29,12 @@ public class MvcController {
     }
     //Сделать передачу данных по заданию JSON API , ответ автоматическое конвертирование
     @GetMapping("/converter")
-    public String converter2k10(@RequestParam(name = "binaryNumber", defaultValue = "0", required = false)
+    public String cconverter(){
+        return "converter";
+    }
+
+    @PostMapping("/converter")
+    public String converter(@RequestParam(name = "binaryNumber", defaultValue = "0", required = false)
             String binaryNumber, @RequestParam(name = "binaryNumberPath2", defaultValue = "0", required = false)
             String binaryNumberPath2, @RequestParam(name = "decimalNumber", defaultValue = "0", required = false) Integer
             decimalNumber, @RequestParam(name = "hexNumber", defaultValue = "0", required = false) String hexNumber,

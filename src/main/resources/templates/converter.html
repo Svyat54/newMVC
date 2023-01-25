@@ -7,7 +7,7 @@
 </head>
 <body>
       <h1>2k10</h1>
-      <form>
+      <form method="post" th:action="@{/converter}">
         <input type="text" name="binaryNumber" placeholder="binaryNumber">
 <!--        <input type="submit" value="push">-->
           <button>Push</button>
@@ -17,25 +17,28 @@
       </th:block>
 
       <h1>2k16</h1>
-      <form>
+      <form method="post" th:action="@{/converter}">
           <input type="text" name="binaryNumberPath2" placeholder="binaryNumberPath2">
-          <input type="submit" value="push">
+<!--          <input type="submit" value="push">-->
+          <button>Push</button>
       </form>
       <th:block th:if="${hexNumber != '0'}">
       <p>toHex = [[${hexNumber}]]</p>
       </th:block>
 
       <h1>10k2</h1>
-      <form>
+      <form method="post" th:action="@{/converter}">
           <input type="text" name="decimalNumber" placeholder="decimalNumber">
-          <input type="submit" value="push">
+<!--          <input type="submit" value="push">-->
+          <button>Push</button>
       </form>
       <p>binaryNumber = [[${binaryNumber}]]</p>
 
       <h1>16k2</h1>
-      <form>
+      <form method="post" th:action="@{/converter}">
           <input type="text" name="hexNumber" placeholder="hexNumber">
-          <input type="submit" value="push">
+<!--          <input type="submit" value="push">-->
+          <button>Push</button>
       </form>
       <th:block th:if="${binaryNumberPath2 != '0000'}">
       <p>binaryNumberPath2 = [[${binaryNumberPath2}]]</p>
