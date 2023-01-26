@@ -1,6 +1,15 @@
 package com.example.newmvc.entity;
 
+import org.springframework.stereotype.Service;
+
 public class BinaryDecimal {
+    public String getToBinary(int x){
+        return toBinary(x);
+    }
+
+    public int getToDecimal(String str){
+        return toDecimal(str);
+    }
     public static String toBinary(int decimalNumber) {
         String binaryNumber = "";
         if (decimalNumber <= 0){

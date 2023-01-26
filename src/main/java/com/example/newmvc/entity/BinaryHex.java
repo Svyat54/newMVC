@@ -1,6 +1,18 @@
 package com.example.newmvc.entity;
 
+import org.springframework.stereotype.Service;
+
 public class BinaryHex {
+
+    public String getToChoice(String choice , String str){
+        if(choice.equals("hex"))
+            return toHex(str);
+        if(choice.equals("binary"))
+            return toBinary(str);
+        return null;
+    }
+
+
     public static String toHex(String binaryNumber) {
         String hexNumber = "is Empty";
         if (binaryNumber == null) {
