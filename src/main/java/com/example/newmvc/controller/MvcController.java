@@ -2,13 +2,12 @@ package com.example.newmvc.controller;
 
 import com.example.newmvc.entity.BinaryDecimal;
 import com.example.newmvc.entity.BinaryHex;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class MvcController {
@@ -33,25 +32,45 @@ public class MvcController {
         return "converter";
     }
 
-    @PostMapping("/converter")
-    public String converter(@RequestParam(name = "binaryNumber", required = false)
-            String binaryNumber, @RequestParam(name = "binaryNumberPath2", required = false)
-            String binaryNumberPath2, @RequestParam(name = "decimalNumber", required = false) Integer
-            decimalNumber, @RequestParam(name = "hexNumber", required = false) String hexNumber,
-                                Model model){
-        if(binaryNumber != null) {
-            model.addAttribute("decimalNumber", BinaryDecimal.toDecimal(binaryNumber)); //2k10
-        }
-        if(binaryNumberPath2 != null) {
-            model.addAttribute("hexNumber", BinaryHex.toHex(binaryNumberPath2)); //2k16
-        }
-        if(decimalNumber != null) {
-            model.addAttribute("binaryNumber", BinaryDecimal.toBinary(decimalNumber)); //10k2
-        }
-        if(hexNumber != null) {
-            model.addAttribute("binaryNumberPath2", BinaryHex.toBinary(hexNumber)); //16k2
-        }
-        return "converter";
+//    @PostMapping("/converter-handler")
+//    public String converter(@RequestParam(name = "binaryNumber", required = false)
+//            String binaryNumber, @RequestParam(name = "binaryNumberPath2", required = false)
+//            String binaryNumberPath2, @RequestParam(name = "decimalNumber", required = false) Integer
+//            decimalNumber, @RequestParam(name = "hexNumber", required = false) String hexNumber,
+//                                Model model){
+//        if(binaryNumber != null) {
+//            model.addAttribute("decimalNumber", BinaryDecimal.toDecimal(binaryNumber)); //2k10
+//        }
+//        if(binaryNumberPath2 != null) {
+//            model.addAttribute("hexNumber", BinaryHex.toHex(binaryNumberPath2)); //2k16
+//        }
+//        if(decimalNumber != null) {
+//            model.addAttribute("binaryNumber", BinaryDecimal.toBinary(decimalNumber)); //10k2
+//        }
+//        if(hexNumber != null) {
+//            model.addAttribute("binaryNumberPath2", BinaryHex.toBinary(hexNumber)); //16k2
+//        }
+//        return "converter";
+//    }
+@PostMapping("/converter-handler")
+public String converter(@RequestParam(name = "binaryNumber", required = false)
+                        String binaryNumber, @RequestParam(name = "binaryNumberPath2", required = false)
+                        String binaryNumberPath2, @RequestParam(name = "decimalNumber", required = false) Integer
+                                decimalNumber, @RequestParam(name = "hexNumber", required = false) String hexNumber,
+                        RedirectAttributes ra){
+    if(binaryNumber != null) {
+        ra.addFlashAttribute("decimalNumber", BinaryDecimal.toDecimal(binaryNumber)); //2k10
     }
+    if(binaryNumberPath2 != null) {
+        ra.addFlashAttribute("hexNumber", BinaryHex.toHex(binaryNumberPath2)); //2k16
+    }
+    if(decimalNumber != null) {
+        ra.addFlashAttribute("binaryNumber", BinaryDecimal.toBinary(decimalNumber)); //10k2
+    }
+    if(hexNumber != null) {
+        ra.addFlashAttribute("binaryNumberPath2", BinaryHex.toBinary(hexNumber)); //16k2
+    }
+    return "redirect:converter";
+}
 }
 
