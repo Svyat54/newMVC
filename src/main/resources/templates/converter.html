@@ -8,42 +8,52 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 </head>
 <body>
-<div class="container-fluid text-center bg-light">
+<div class="container-fluid text-bg-light">
       <h1>Конвертер двоичного числа в десятичное</h1>
       <form method="post" th:action="@{/converter-handler}">
-        <input type="text" name="binaryNumber" placeholder="binaryNumber" class="form-control">
-          <button class="btn-success">Push</button>
+          <label class="form-label">Введите двоичное число</label>
+          <input type="text" name="binaryNumber" placeholder="binaryNumber" class="form-control">
+          <th:block th:if="${decimalNumber !=null}">
+              <p class="form-text">decimalNumber = [[${decimalNumber}]]</p>
+          </th:block>
+          <button class="btn btn-primary">Push</button>
       </form>
-      <th:block th:if="${decimalNumber !=null}">
-      <p class="container-fluid">decimalNumber = [[${decimalNumber}]]</p>
-      </th:block>
+</div>
 
+<div class="container-fluid text-bg-light">
       <h1>Конвертер двоичного числа в шестнадцатеричное</h1>
       <form method="post" th:action="@{/converter-handler}">
+          <label class="form-label">Введите двоичное число</label>
           <input type="text" name="binaryNumberPath2" placeholder="binaryNumberPath2" class="form-control">
-          <button class="btn-success">Push</button>
+          <th:block th:if="${hexNumber != null}">
+              <p>toHex = [[${hexNumber}]]</p>
+          </th:block>
+          <button class="btn btn-primary">Push</button>
       </form>
-      <th:block th:if="${hexNumber != null}">
-      <p>toHex = [[${hexNumber}]]</p>
-      </th:block>
+</div>
 
+<div class="container-fluid text-bg-light">
       <h1>Конвертер десятичного числа в двоичное</h1>
       <form method="post" th:action="@{/converter-handler}">
+          <label class="form-label">Введите десятичное число</label>
           <input type="text" name="decimalNumber" placeholder="decimalNumber" class="form-control">
-          <button class="btn-success">Push</button>
+          <th:block th:if="${binaryNumber != null}">
+              <p>binaryNumber = [[${binaryNumber}]]</p>
+          </th:block>
+          <button class="btn btn-primary">Push</button>
       </form>
-      <th:block th:if="${binaryNumber != null}">
-      <p>binaryNumber = [[${binaryNumber}]]</p>
-      </th:block>
+</div>
 
+    <div class="container-fluid text-bg-light">
       <h1>-Конвертер шестнадцатеричного числа в двоичное</h1>
       <form method="post" th:action="@{/converter-handler}">
+          <label class="form-label">Введите шестнадцатеричное число</label>
           <input type="text" name="hexNumber" placeholder="hexNumber" class="form-control">
-          <button class="btn-success">Push</button>
+          <th:block th:if="${binaryNumberPath2 != null}">
+              <p>binaryNumberPath2 = [[${binaryNumberPath2}]]</p>
+          </th:block>
+          <button class="btn btn-primary">Push</button>
       </form>
-      <th:block th:if="${binaryNumberPath2 != null}">
-      <p>binaryNumberPath2 = [[${binaryNumberPath2}]]</p>
-      </th:block>
 </div>
 </body>
 </html>
