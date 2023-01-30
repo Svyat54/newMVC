@@ -11,5 +11,4 @@
 <h3>Стек технологий</h3>
 
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=Spring/Springboot+Thymeleaf+HTML/CSS)](https://git.io/typing-svg)
-Bootstrap по желанию*
-
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?color=%2336BCF7&lines=Bootstrap+по+желанию*)](https://git.io/typing-svg)
